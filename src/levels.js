@@ -4,7 +4,7 @@ import * as types from './types';
 const levelData = [{
   colors: {
     from: [ 0, 100, 75 ],
-    to: [ 37, 100, 25 ],
+    to: [ 19, 100, 25 ],
   },
   fixedPoints: `east-west`,
   size: {
@@ -28,8 +28,18 @@ const levelData = [{
   },
   fixedPoints: `corners`,
   size: {
-    rows: 8,
-    columns: 12
+    rows: 4,
+    columns: 4
+  }
+}, {
+  colors: {
+    from: [ 37, 100, 75 ],
+    to: [ 75, 100, 25 ]
+  },
+  fixedPoints: `north-south`,
+  size: {
+    rows: 5,
+    columns: 5
   }
 }];
 

@@ -30,7 +30,8 @@ function Sound(props) {
 }
 
 function App() {
-  const debug = window.location.search.length > 0;
+  /** @type {types.ReactState<boolean>} */
+  const [debug, setDebug] = useState(window.location.search.length > 0);
   /** @type {number} */
   const initialLevel = debug ?
     +(window.location.search.slice(1)) : 0;
@@ -73,6 +74,9 @@ function App() {
           <span>
             <Sound soundEnabled={soundEnabled} onClick={onToggleSound} />
           </span>
+
+          {window.location.search.length > 0 && (<button onClick={() => setDebug(!debug)}>toggle</button>)}
+
           <span>
             level: {1 + currentLevel}
           </span>

@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   checkAllDone,
-  generateTileset,
-  randomizeTiles
+  generateTileset
 } from '../utils';
 import Tile from './Tile';
 
@@ -19,7 +18,7 @@ import * as types from '../types';
 /** @type {types.Component<BoardProps>} */
 function Board(props) {
   const {
-    debug = false,
+    debug,
     levelData,
     onComplete,
     soundEnabled
@@ -30,20 +29,23 @@ function Board(props) {
     fontWeight: 800,
     gridTemplateColumns: `repeat(${levelData.size.columns}, 1fr)`,
     margin: `80px`,
-    maxWidth: `50%`
+    maxWidth: `50%`,
+    userSelect: `none`
   };
-  /** @type {ReactRef<types.TileData[]>} */
-  const tilesetRef = useRef(randomizeTiles(generateTileset(levelData)));
-  /** @type {ReactState<number>} */
+  /** @type {types.ReactState<boolean>} */
+  const [shuffle, setShuffle] = useState(!debug);
+  /** @type {types.ReactState<types.TileData[]>} */
+  const [tileset, setTileset] = useState(generateTileset(levelData, shuffle));
+  /** @type {types.ReactState<number>} */
   const [selectedTile, setSelectedTile] = useState(undefined);
-  /** @type {ReactState<number>} */
+  /** @type {types.ReactState<number>} */
   const [turnCount, setTurnCount] = useState(0);
-  /** @type {ReactState<boolean>} */
+  /** @type {types.ReactState<boolean>} */
   const [allDone, setAllDone] = useState(false);
 
   /** @type {function(number):void} */
   function doClick(tileIndex) {
-    if (tilesetRef.current[tileIndex].fixed || allDone) {
+    if (tileset[tileIndex].fixed || allDone) {
       return;
     }
 
@@ -53,10 +55,10 @@ function Board(props) {
 
     if (selectedTile) {
       if (selectedTile !== tileIndex) {
-        const tmp = tilesetRef.current[tileIndex];
+        const tmp = tileset[tileIndex];
 
-        tilesetRef.current[tileIndex] = tilesetRef.current[selectedTile];
-        tilesetRef.current[selectedTile] = tmp;
+        tileset[tileIndex] = tileset[selectedTile];
+        tileset[selectedTile] = tmp;
 
         setTurnCount(turnCount + 1);
       }
@@ -69,14 +71,14 @@ function Board(props) {
   }
 
   useEffect(function checkForVictory() {
-    if (turnCount === 0 || selectedTile) {
+    if (turnCount <= 0 || selectedTile) {
       return;
     }
 
-    const done = checkAllDone(levelData, tilesetRef.current);
+    const done = checkAllDone(levelData, tileset);
 
     setAllDone(done);
-  }, [ selectedTile, levelData, turnCount ]);
+  }, [ selectedTile, levelData, tileset, turnCount ]);
 
   useEffect(function checkForAllDone() {
     if (!allDone) {
@@ -86,9 +88,18 @@ function Board(props) {
     onComplete(turnCount);
   }, [ allDone, onComplete, turnCount ]);
 
+  useEffect(function() {
+    setShuffle(!debug);
+  }, [ debug ]);
+
+  useEffect(function() {
+    setTileset(generateTileset(levelData, shuffle));
+    setTurnCount(0);
+  }, [ levelData, shuffle ]);
+
   return (
     <div style={boardStyle}>
-      {tilesetRef.current.map(
+      {tileset.map(
         (tile, idx) => (
           <Tile
             key={`${tile.position.row}.${tile.position.col}`}
