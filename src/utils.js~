@@ -1,0 +1,40 @@
+/**
+ * @param {TileData[]} tileset
+ * @return {TileData[]}
+ */
+function randomizeTiles(tileset) {
+  /**
+   * @description Fisher-Yates shuffle but keep fixed tiles in place
+   * @param {TileData[]} array
+   * @return {TileData[]}
+   */
+  function shuffle(array) {
+    let currentIndex = array.length;
+    let temp = undefined;
+    let idx = undefined;
+
+    while (currentIndex > 1) {
+      do {
+        idx = Math.floor(Math.random() * currentIndex);
+      } while (array[idx].fixed);
+
+      currentIndex--;
+
+      if (array[currentIndex].fixed) {
+        continue;
+      }
+
+      temp = array[currentIndex];
+      array[currentIndex] = array[idx];
+      array[idx] = temp;
+    }
+
+    return array;
+  }
+
+  return shuffle([ ...tileset ]);
+}
+
+export {
+  randomizeTiles
+};
