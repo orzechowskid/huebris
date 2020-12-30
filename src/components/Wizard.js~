@@ -1,7 +1,0 @@
-import * as React from 'react';
-
-function Wizard() {
-  return null;
-}
-
-export default Wizard;
