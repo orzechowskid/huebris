@@ -4,6 +4,9 @@ import levels from './levels';
 import Board from './components/Board';
 import Wizard from './components/Wizard';
 import {
+  ReactComponent as GithubIcon
+} from './icons/github.svg';
+import {
   ReactComponent as Muted
 } from './icons/volume-mute.svg';
 import {
@@ -81,6 +84,7 @@ function App() {
             level: {1 + currentLevel}
           </span>
         </div>
+
         <div className={`App ${visible ? 'visible' : ''}`}>
           <Board
             key={currentLevel}
@@ -89,6 +93,12 @@ function App() {
             onComplete={onLevelComplete}
             soundEnabled={soundEnabled}
           />
+        </div>
+
+        <div className="info-container">
+          <a href="https://github.com/orzechowskid/huebris">
+            <GithubIcon className="icon" />
+          </a>
         </div>
       </div>
     </>
