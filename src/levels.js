@@ -51,6 +51,26 @@ const levelData = [{
     rows: 5,
     columns: 5
   }
+}, {
+  colors: {
+    from: [ 220, 100, 75 ],
+    to: [ 90, 100, 15 ]
+  },
+  fixedPoints: `corners`,
+  size: {
+    rows: 6,
+    columns: 8
+  }
+}, {
+  colors: {
+    from: [ 270, 100, 75 ],
+    to: [ 359, 100, 25 ]
+  },
+  fixedPoints: `corners`,
+  size: {
+    rows: 6,
+    columns: 8
+  }
 }];
 
 export default levelData;

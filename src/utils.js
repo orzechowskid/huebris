@@ -26,9 +26,10 @@ function isFixedTile(levelData, row, col) {
 
 /**
  * @param {types.TileData[]} tileset
+ * @param {types.LevelData} levelData
  * @return {types.TileData[]}
  */
-function randomizeTiles(tileset) {
+function randomizeTiles(tileset, levelData) {
   /**
    * @description Fisher-Yates shuffle but keep fixed tiles in place
    * @param {types.TileData[]} array
@@ -62,7 +63,13 @@ function randomizeTiles(tileset) {
     return array;
   }
 
-  return shuffle([ ...tileset ]);
+  let result = undefined;
+
+  do {
+    result = shuffle([ ...tileset ]);
+  } while (checkAllDone(levelData, result));
+
+  return result;
 }
 
 /**
@@ -126,7 +133,7 @@ function generateTileset(levelData, shuffle) {
     []
   );
 
-  return shuffle ? randomizeTiles(tileset) : tileset;
+  return shuffle ? randomizeTiles(tileset, levelData) : tileset;
 }
 
 /**
