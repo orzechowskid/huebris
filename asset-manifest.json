@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/huebris/static/css/main.8043cccf.chunk.css",
-    "main.js": "/huebris/static/js/main.7982fc8c.chunk.js",
-    "main.js.map": "/huebris/static/js/main.7982fc8c.chunk.js.map",
-    "runtime-main.js": "/huebris/static/js/runtime-main.be5c38e7.js",
-    "runtime-main.js.map": "/huebris/static/js/runtime-main.be5c38e7.js.map",
-    "static/js/2.ce26fc0f.chunk.js": "/huebris/static/js/2.ce26fc0f.chunk.js",
-    "static/js/2.ce26fc0f.chunk.js.map": "/huebris/static/js/2.ce26fc0f.chunk.js.map",
-    "static/js/3.51b4ebb2.chunk.js": "/huebris/static/js/3.51b4ebb2.chunk.js",
-    "static/js/3.51b4ebb2.chunk.js.map": "/huebris/static/js/3.51b4ebb2.chunk.js.map",
-    "index.html": "/huebris/index.html",
-    "static/css/main.8043cccf.chunk.css.map": "/huebris/static/css/main.8043cccf.chunk.css.map",
-    "static/js/2.ce26fc0f.chunk.js.LICENSE.txt": "/huebris/static/js/2.ce26fc0f.chunk.js.LICENSE.txt",
-    "static/media/github.692a737a.svg": "/huebris/static/media/github.692a737a.svg",
-    "static/media/volume-mute.e91f9ea4.svg": "/huebris/static/media/volume-mute.e91f9ea4.svg",
-    "static/media/volume-up.dda6dbba.svg": "/huebris/static/media/volume-up.dda6dbba.svg"
+    "main.css": "./static/css/main.8043cccf.chunk.css",
+    "main.js": "./static/js/main.1186ea59.chunk.js",
+    "main.js.map": "./static/js/main.1186ea59.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.314059c6.js",
+    "runtime-main.js.map": "./static/js/runtime-main.314059c6.js.map",
+    "static/js/2.ce26fc0f.chunk.js": "./static/js/2.ce26fc0f.chunk.js",
+    "static/js/2.ce26fc0f.chunk.js.map": "./static/js/2.ce26fc0f.chunk.js.map",
+    "static/js/3.51b4ebb2.chunk.js": "./static/js/3.51b4ebb2.chunk.js",
+    "static/js/3.51b4ebb2.chunk.js.map": "./static/js/3.51b4ebb2.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.8043cccf.chunk.css.map": "./static/css/main.8043cccf.chunk.css.map",
+    "static/js/2.ce26fc0f.chunk.js.LICENSE.txt": "./static/js/2.ce26fc0f.chunk.js.LICENSE.txt",
+    "static/media/github.692a737a.svg": "./static/media/github.692a737a.svg",
+    "static/media/volume-mute.e91f9ea4.svg": "./static/media/volume-mute.e91f9ea4.svg",
+    "static/media/volume-up.dda6dbba.svg": "./static/media/volume-up.dda6dbba.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.be5c38e7.js",
+    "static/js/runtime-main.314059c6.js",
     "static/js/2.ce26fc0f.chunk.js",
     "static/css/main.8043cccf.chunk.css",
-    "static/js/main.7982fc8c.chunk.js"
+    "static/js/main.1186ea59.chunk.js"
   ]
 }
