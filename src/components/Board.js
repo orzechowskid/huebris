@@ -50,7 +50,11 @@ function Board(props) {
     }
 
     if (soundEnabled) {
-      new Audio(`audio/tap.mp3`).play();
+      try {
+        new Audio(`audio/tap.mp3`).play();
+      } catch (ex) {
+        console.error(ex);
+      }
     }
 
     if (selectedTile) {

@@ -49,7 +49,13 @@ function App() {
     console.info(numMoves);
 
     if (soundEnabled) {
-      setTimeout(() => new Audio(`audio/complete.mp3`).play(), 500);
+      setTimeout(function x() {
+        try {
+          new Audio(`audio/complete.mp3`).play();
+        } catch (ex) {
+          console.error(ex);
+        }
+      }, 500);
     }
 
     setTimeout(function next() {
