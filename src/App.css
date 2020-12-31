@@ -16,7 +16,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: 8px;
 }
 
 .App {
@@ -45,4 +45,25 @@ body {
   display: flex;
   justify-content: space-between;
   color: white;
+}
+
+.board {
+  display: grid;
+  flex-grow: 1;
+  font-weight: 800;
+  user-select: none;
+  width: 100%;
+  margin: 18vh 2vw;
+}
+
+.tile {
+  background: white;
+  transition: transform 0.1s linear;
+}
+
+@media (min-width: 800px) {
+  .board {
+    width: 50%;
+    flex-grow: 0;
+  }
 }

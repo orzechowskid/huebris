@@ -56,7 +56,7 @@ const levelData = [{
     from: [ 220, 100, 75 ],
     to: [ 90, 100, 15 ]
   },
-  fixedPoints: `corners`,
+  fixedPoints: `east-west`,
   size: {
     rows: 6,
     columns: 8

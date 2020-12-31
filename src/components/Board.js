@@ -24,13 +24,7 @@ function Board(props) {
     soundEnabled
   } = props;
   const boardStyle = {
-    display: `grid`,
-    flexGrow: 1,
-    fontWeight: 800,
     gridTemplateColumns: `repeat(${levelData.size.columns}, 1fr)`,
-    margin: `80px`,
-    maxWidth: `50%`,
-    userSelect: `none`
   };
   /** @type {types.ReactState<boolean>} */
   const [shuffle, setShuffle] = useState(!debug);
@@ -102,7 +96,7 @@ function Board(props) {
   }, [ levelData, shuffle ]);
 
   return (
-    <div style={boardStyle}>
+    <div className="board" style={boardStyle}>
       {tileset.map(
         (tile, idx) => (
           <Tile
